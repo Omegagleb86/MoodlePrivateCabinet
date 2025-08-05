@@ -9,6 +9,9 @@
 >При выборе варианта кастомизации необходимо будет в ручную открывать и выключать режим редактирования
 
 Цвета можно найти на [сайте](https://coolors.co/palettes/trending)
+
+# !!!!
+А ещё, я забыл добавить, что при нажатии на Esc, можно видеть только фон, переключать вообщем
 # English
 Hello, this project transforms the main page of your personal Moodle account into a more beautiful version to transform your entire page, while there is a mode that makes your entire account look SurGU Style.
 To transform your office, you need to do the following steps, indicated in the picture by the red arrows.

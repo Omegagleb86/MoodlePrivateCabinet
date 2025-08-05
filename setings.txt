@@ -1,8 +1,36 @@
 <script>
+    // Параметры изменения
+    var colorName = "darkorange"
+    var colorTextBlock = "lightsalmon"
+    // var colorButtons = "tomato"
+    var colorButtons = "tomato"
+    var backgroundImage = "https://i.pinimg.com/736x/1e/81/6e/1e816e9b8f1552030f0a6d493a8383be.jpg" // Asuka
+
+    // Переключение между красивым офицальным и персонализированным
+    var SWITCH = "ON"
+
+
+    SurGU_Check = SWITCH == "ON" ? true : false;
+
+    colorName = SurGU_Check ? "whitesmoke" : colorName;
+    colorTextBlock = SurGU_Check ? "whitesmoke" : colorTextBlock;
+    colorButtons = SurGU_Check ? "#42aaff" : colorButtons
+
+
+
+
+    backgroundImage = SurGU_Check ? "https://avatars.mds.yandex.net/i?id=0fa63f04ecae1ec998eaade1938900a3a0e0c33b-5271179-images-thumbs&n=13" : backgroundImage
+
+    /*
+    https://i.pinimg.com/originals/65/e8/04/65e804e0f44755b421d7009655451d38.gif // Орущий бобёр
+    
+    https://static.wikia.nocookie.net/60d8700a-5793-47c5-a740-20c7de919e5c/scale-to-width/755 // Сквидвард думает
+    
+    https://avatars.mds.yandex.net/i?id=d09dbd2e5fa55f541fd5122096fcd837_l-12997438-images-thumbs&n=13 // Губка боб читает
+    */
     const myprofileitem = document.querySelector('.fullname').style;
 
-    /*myprofileitem.cssText = 'color: chartreuse;';*/ // Зелённый
-    myprofileitem.cssText = 'color: darkorange;'; // Оранжевый
+    myprofileitem.cssText = 'color:' + colorName + ';'; // Оранжевый
 
     const country = document.querySelector('.country').style;
 
@@ -39,87 +67,47 @@
         }
     });
 
-    const profileTop = document.getElementById('inst362248').style;
-
-    /*profileTop.cssText = 'background: rgba(0, 0, 0, 0.6); color: cornflowerblue;';*/ // Синий
-
-    profileTop.cssText = 'background: rgba(0, 0, 0, 0.6); color: lightsalmon;'; // оранжево-тёмный
-
-    const profileTop2 = document.getElementById('inst379966').style;
-
-
-    profileTop2.cssText = 'background: rgba(0, 0, 0, 0.6); color: lightsalmon;';
-
     const page = document.getElementById('page').style;
 
-    /*page.cssText = 'color: cornflowerblue; background: url(https://avatars.mds.yandex.net/i?id=d09dbd2e5fa55f541fd5122096fcd837_l-12997438-images-thumbs&n=13);background-repeat:round';*/ // Губка боб читает
-
-    /*page.cssText = 'color: cornflowerblue; background: url(https://static.wikia.nocookie.net/60d8700a-5793-47c5-a740-20c7de919e5c/scale-to-width/755);background-repeat:round';*/ // Сквидвард думает
-
-    page.cssText = 'color: cornflowerblue; background: url(https://i.pinimg.com/736x/1e/81/6e/1e816e9b8f1552030f0a6d493a8383be.jpg);background-repeat:round; background-size: 30vw'; // asuka кокетливо лежит
-
-    /*page.cssText = 'color: cornflowerblue; background: url(https://avatars.mds.yandex.net/i?id=0fa63f04ecae1ec998eaade1938900a3a0e0c33b-5271179-images-thumbs&n=13);background-repeat:round; background-size: 30vw';*/ // СурГУ
-
-    /*page.cssText = 'color: cornflowerblue; background: url(https://i.pinimg.com/originals/65/e8/04/65e804e0f44755b421d7009655451d38.gif);background-repeat:round; background-size: 30vw;';*/ // Орущий бобёр
-
-
-    const schedule = document.getElementById('inst362247').style;
-
-    schedule.cssText = 'color: lightsalmon; background: rgba(0, 0, 0, 0.6)';
-
-    const cources = document.getElementById('inst378581').style;
-
-    cources.cssText = 'color: lightsalmon; background: rgba(0, 0, 0, 0.6)';
-    const calendar = document.getElementById('inst362242').style;
-
-    calendar.cssText = 'color: lightsalmon; background: rgba(0, 0, 0, 0.6)';
-
-    const users = document.getElementById('inst369436').style;
-
-    users.cssText = 'color: lightsalmon;';
-
-    const coloring = document.getElementById('inst380387').style;
-
-    coloring.cssText = 'color: lightsalmon; background: rgba(0, 0, 0, 0.6)';
-
-    let a = document.querySelectorAll('a');
-
-    for (let a_elem of a) {
-        /*a_elem.style.cssText = 'color: cadetblue;';*/ // синий
-        a_elem.style.cssText = 'color: tomato;'; // красный 
-    };
-
-    let px2 = document.querySelectorAll('.px-1 .px-2');
-
-    for (let px2_elem of px2) {
-        px2_elem.style.cssText = 'color: tomato;';
-    };
-
-    const picture = document.querySelector('.picture');
-
-    let a_another = document.querySelectorAll('h6>a');
-
-    for (let a_another_elem of a_another) {
-        a_another_elem.style.cssText = 'color: tomato;';
-    };
-
+    page.cssText = 'color: ' + colorTextBlock + '; background: url(' + backgroundImage + ');background-repeat:round; background-size: 30vw'; // Задний фон
 
     window.addEventListener("load", function() {
-        const footer = document.querySelector('#page-footer').style;
-        footer.cssText = 'display: none;';
+
+
+
+        if (!SurGU_Check) {
+            const logo = document.querySelector(".logo").style.cssText = "display: none;";
+        }
+        let blocks = document.querySelectorAll('.card');
+
+        for (let block of blocks) {
+            block.style.cssText = 'color: ' + colorTextBlock + '; background: rgba(0, 0, 0, 0.6)';
+        }
+
+        var cources = document.querySelector(".block_myoverview > .card-body").style.cssText = 'padding: 16px !important;';
+
+
+        let a = document.querySelectorAll('a');
+
+        for (let a_elem of a) {
+            a_elem.style.cssText = 'color: ' + colorButtons + ';';
+        };
+
+        const footer = document.querySelector('#page-footer');
+        footer.style.cssText = SurGU_Check ? 'display: block;' : "display: none";
+        let footer_a = footer.querySelectorAll('a');
+        for (let footer_a_elem of footer_a) {
+            footer_a_elem.style.cssText = "color: whitesmoke;";
+        }
         console.log("Page loaded!");
 
-        const Whether = document.getElementById('inst380526').style;
-
-        Whether.cssText = 'color: lightsalmon; background: rgba(0, 0, 0, 0.6);';
-
         const right = document.querySelector('.drawer-right-toggle').style;
-        right.cssText = 'display: none;';
+        right.cssText = 'display: none;'; // Эта штука бесполезна и никому не нужна!!!
 
         const verticalLine = document.querySelector('.divider').style;
-        verticalLine.cssText = 'display: none;';
+        verticalLine.cssText = SurGU_Check ? "display: block;" : 'display: none;';
 
         const inputGroup = document.querySelector('.input-group').style;
-        inputGroup.cssText = 'display: none;';
+        inputGroup.cssText = SurGU_Check ? "display: block;" : 'display: none;';
     });
 </script>

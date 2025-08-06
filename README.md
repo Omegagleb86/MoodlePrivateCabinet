@@ -1,33 +1,130 @@
-# Русский 
-Здравствуйте, этот проект преображает главную страницу вашего личного кабинета Moodle в более красивую версию, чтобы преобразить всю вашу страницу, при этом есть режим, который делает весь ваш кабинет в стиле SurGU Style.
+# Русский
 
-Чтобы преобразить ваш кабинет необходимо сделать следующие действия, указанные на картинке красными стрелками.
+## Преображение кабинета
 
-Для того, чтобы редактировать ваш профиль, достаточно поменять параметры указанные в самом начале, параметры будут применены, только если вы осознано выберите отключение стиля SurGU Style
-## Предупреждение!
+Здравствуйте!
+
+Этот проект обновит главную страницу вашего личного кабинета в Moodle, придав ей современный и привлекательный вид. Вы можете выбрать специальный режим SurGU Style, чтобы оформить кабинет в едином стиле.
+
+Для применения изменений следуйте инструкциям, отмеченным красными стрелками. Чтобы изменить профиль, отредактируйте параметры в начале. Изменения вступят в силу после отключения стиля SurGU Style.
+
+Кнопка Esc скроет панель, оставив видимым только фон.
+
+### Предупреждение
 >[!danger]
->При выборе варианта кастомизации необходимо будет в ручную открывать и выключать режим редактирования
+>При выборе кастомизации потребуется вручную включать и выключать режим редактирования. Фото процесса доступно.
 
-Цвета можно найти на [сайте](https://coolors.co/palettes/trending)
+Цветовая палитра находится по [ссылке](https://coolors.co/palettes/trending).
+
+## Следящий кот
+
+Вы можете загрузить на страницу кота. Чтобы изменить его цвет, нужно вручную отредактировать код.
+
+## Информационная сводка
+
+Информационная сводка взята с курса "Алгоритмизация и Программирование". Она содержит текущую дату, время, номер пары, температуру в Сургуте и возможность посмотреть расписание на текущий семестр.
+
 # English
-Hello, this project transforms the main page of your personal Moodle account into a more beautiful version to transform your entire page, while there is a mode that makes your entire account look SurGU Style.
-To transform your office, you need to do the following steps, indicated in the picture by the red arrows.
-In order to edit your profile, it is enough to change the parameters specified at the very beginning, the parameters will be applied only if you consciously choose to disable the SurGU Style.
-## Warning!
->[!danger]
->>When choosing the customization option, you will need to manually open and turn off the editing mode.
 
-The colors can be found on [website](https://coolors.co/palettes/trending )
-# Indonesia
-Halo, proyek ini mengubah halaman utama akun Moodle pribadi Anda menjadi versi yang lebih indah untuk mengubah seluruh halaman Anda, sementara ada mode yang membuat seluruh akun Anda terlihat seperti SurGU. Untuk mengubah kantor Anda, Anda perlu melakukan langkah-langkah berikut, yang ditunjukkan pada gambar dengan panah merah. Untuk mengedit profil Anda, cukup mengubah parameter yang ditentukan di awal, parameter hanya akan diterapkan jika Anda secara sadar memilih untuk menonaktifkan gaya SurGU.
-## Peringatan!
->[!danger]
->Saat memilih opsi penyesuaian, Anda harus membuka dan mematikan mode pengeditan secara manual.
+## Cabinet transformation
 
-Warna-warna tersebut dapat ditemukan di [situs web](https://coolors.co/palettes/trending)
+Hello!
+
+This project will update the main page of your personal account in Moodle, giving it a modern and attractive look. You can select a special SurGU Style mode to design your office in a single style.
+
+To apply the changes, follow the instructions marked with red arrows. To change the profile, edit the settings at the beginning. The changes will take effect after disabling the SurGU Style.
+
+The Esc button will hide the panel, leaving only the background visible.
+
+### Warning
+
+>[!danger]
+>When choosing customization, you will need to manually turn on and off the editing mode. A photo of the process is available.
+
+The color palette is located at [link](https://coolors.co/palettes/trending ).
+
+## The tracking cat
+
+You can upload a cat to the page. To change its color, you need to edit the code manually.
+
+## Information summary
+
+The information summary is taken from the course "Algorithmization and Programming". It contains the current date, time, pair number, temperature in Surgut and the opportunity to view the schedule for the current semester.
+
+# हिन्दी
+
+## कैबिनेट परिवर्तन
+
+नमस्कार!
+
+यह प्रोजेक्ट मूडल में आपके व्यक्तिगत खाते के मुख्य पृष्ठ को अपडेट करेगा, जिससे यह एक आधुनिक और आकर्षक रूप देगा ।  आप अपने कार्यालय को एक ही शैली में डिजाइन करने के लिए एक विशेष सुरगु शैली मोड का चयन कर सकते हैं । 
+
+परिवर्तनों को लागू करने के लिए, लाल तीरों से चिह्नित निर्देशों का पालन करें ।  प्रोफ़ाइल बदलने के लिए, शुरुआत में सेटिंग्स संपादित करें ।  सर्जू शैली को अक्षम करने के बाद परिवर्तन प्रभावी होंगे । 
+
+ईएससी बटन पैनल को छिपाएगा, जिससे केवल पृष्ठभूमि दिखाई देगी । 
+
+### चेतावनी
+>[!danger] खतरे
+> अनुकूलन चुनते समय, आपको संपादन मोड को मैन्युअल रूप से चालू और बंद करना होगा ।  प्रक्रिया की एक तस्वीर उपलब्ध है । 
+
+रंग पैलेट पर उपलब्ध है [लिंक] (https://coolors.co/palettes/trending ) । 
+
+## ट्रैकिंग बिल्ली
+
+आप पृष्ठ पर एक बिल्ली अपलोड कर सकते हैं ।  इसका रंग बदलने के लिए, आपको कोड को मैन्युअल रूप से संपादित करना होगा । 
+
+## सूचना सारांश
+
+सूचना सारांश "एल्गोरिथम और प्रोग्रामिंग"पाठ्यक्रम से लिया गया है ।  इसमें वर्तमान तिथि, समय, जोड़ी संख्या, सर्गुट में तापमान और वर्तमान सेमेस्टर के लिए अनुसूची देखने का अवसर शामिल है । 
+
+# العربية
+
+## تحويل مجلس الوزراء
+
+مرحبا!
+
+سيقوم هذا المشروع بتحديث الصفحة الرئيسية لحسابك الشخصي في موودل ، مما يمنحه مظهرا عصريا وجذابا. يمكنك تحديد وضع نمط سورجو خاص لتصميم مكتبك في نمط واحد.
+
+لتطبيق التغييرات ، اتبع التعليمات المميزة بالأسهم الحمراء. لتغيير ملف التعريف ، قم بتحرير الإعدادات في البداية. ستدخل التغييرات حيز التنفيذ بعد تعطيل أسلوب سورجو.
+
+سيخفي زر خروج اللوحة ، تاركا الخلفية مرئية فقط.
+
+### تحذير
+>[!danger] خطر
+>عند اختيار التخصيص ، ستحتاج إلى تشغيل وإيقاف وضع التحرير يدويا. تتوفر صورة للعملية.
+
+لوحة الألوان متوفرة في [رابط](https://coolors.co/palettes/trending).
+
+## القط تتبع
+
+يمكنك تحميل قطة إلى الصفحة. لتغيير لونه ، تحتاج إلى تحرير الرمز يدويا.
+
+## ملخص المعلومات
+
+ملخص المعلومات مأخوذ من دورة "الخوارزمية والبرمجة". أنه يحتوي على التاريخ الحالي والوقت ورقم الزوج ودرجة الحرارة في سورجوت وفرصة لعرض الجدول الزمني للفصل الدراسي الحالي.
 # 中国语文科
-你好，这个项目将您的个人Moodle帐户的主页面转换为一个更漂亮的版本，以转换您的整个页面，同时有一种模式可以使您的整个帐户看起来更具风格。 要改造你的办公室，你需要做以下步骤，由红色箭头表示在图片中。 为了编辑您的个人资料，更改一开始指定的参数就足够了，只有当您有意识地选择禁用SurGU样式时，才会应用参数。 ##警告！
->[!danger]
->选择自定义选项时，您将需要手动打开和关闭编辑模式。
 
-颜色可以在[网站上找到](https://coolors.co/palettes/trending)
+## 内阁的转变
+
+你好！
+
+该项目将更新主页上的个人账户在伦敦大学学院，给予它一个现代和有吸引力的外观。 你可以选择一个特殊的SurGU式的模式建立一个统一的内阁。
+
+按照指示标志着与红箭头申请更改。 改变的配置文件，编辑所设置在开始。 这些变化将采取的效果时，SurGU式是残疾人。
+
+Esc按钮将隐藏的面板，只留下背景可见。
+
+### 警告
+
+>[!danger] 危险
+>当你选择自定义，你将需要手动启动和禁止的编辑模式。 一个照片的过程中是可用的。
+
+色调色板位于[链接](https://coolors.co/palettes/trending).
+
+## 跟踪猫
+
+你可以上传一只猫的网页。 来改变其颜色，你需要手工编辑的代码。
+
+## 信息摘要
+
+信息摘要取自然"人algorithmization和编程"。 它包含当前的日期、时间、对数量、温度在苏尔古特的能力来查看日程安排的当前学期。

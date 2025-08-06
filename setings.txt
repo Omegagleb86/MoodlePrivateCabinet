@@ -7,20 +7,18 @@
     var backgroundImage = "https://i.pinimg.com/736x/1e/81/6e/1e816e9b8f1552030f0a6d493a8383be.jpg" // Asuka
 
     // Переключение между красивым офицальным и персонализированным
-    var SWITCH = "ON"
+    var SWITCH = "OFF"
 
 
-    SurGU_Check = SWITCH == "ON" ? true : false;
+    SurGU_Check = SWITCH == "ON" ? true : false; // Выполняется проверка, если включен режим SurGU, тогда будет всё в стиле СурГУ, иначе так как мы того решим
 
-    colorName = SurGU_Check ? "whitesmoke" : colorName;
-    colorTextBlock = SurGU_Check ? "whitesmoke" : colorTextBlock;
-    colorButtons = SurGU_Check ? "#42aaff" : colorButtons
+    colorName = SurGU_Check ? "whitesmoke" : colorName; // изменение цвета главного имени
+    colorTextBlock = SurGU_Check ? "whitesmoke" : colorTextBlock; // изменение цвета текста у блоков
+    colorButtons = SurGU_Check ? "#42aaff" : colorButtons // изменение кнопок, ссылок и остального
 
+    backgroundImage = SurGU_Check ? "https://avatars.mds.yandex.net/i?id=0fa63f04ecae1ec998eaade1938900a3a0e0c33b-5271179-images-thumbs&n=13" : backgroundImage // изменение изображения заднего фона
 
-
-
-    backgroundImage = SurGU_Check ? "https://avatars.mds.yandex.net/i?id=0fa63f04ecae1ec998eaade1938900a3a0e0c33b-5271179-images-thumbs&n=13" : backgroundImage
-
+    // персональная библеотека (нет, тут всё правлиьно)
     /*
     https://i.pinimg.com/originals/65/e8/04/65e804e0f44755b421d7009655451d38.gif // Орущий бобёр
     
@@ -30,19 +28,19 @@
     */
     const myprofileitem = document.querySelector('.fullname').style;
 
-    myprofileitem.cssText = 'color:' + colorName + ';'; // Оранжевый
+    myprofileitem.cssText = 'color:' + colorName + ';'; // изменение цвета вашего имени
 
     const country = document.querySelector('.country').style;
 
-    country.cssText = 'display: none;';
+    country.cssText = 'display: none;'; // я не помню что это, наврное, что-то не нужное
 
     const city = document.querySelector('.city').style;
 
-    city.cssText = 'display: none;';
+    city.cssText = 'display: none;'; // как и это
 
     const mail = document.querySelector('.city+.city').style;
 
-    mail.cssText = 'display: none;';
+    mail.cssText = 'display: none;'; // и это тоже
 
     const h2 = document.querySelector('.h2').style;
 
@@ -50,8 +48,9 @@
 
     const topofscroll = document.getElementById('topofscroll').style;
 
-    topofscroll.cssText = 'background: rgba(0, 0, 0, 0); box-shadow: none;';
+    topofscroll.cssText = 'background: rgba(0, 0, 0, 0); box-shadow: none;'; // делает содержание контейнера абсолютно прозрачным
 
+    // функция для скрытия блоков и показа заднего фона
     let switchTopofscroll = 0;
 
     document.addEventListener('keydown', function(e) {
@@ -71,30 +70,38 @@
 
     page.cssText = 'color: ' + colorTextBlock + '; background: url(' + backgroundImage + ');background-repeat:round; background-size: 30vw'; // Задний фон
 
+    // это всё будет работать только после загрузки всей страницы, так как многие элементы загружаются не сразу, например footer
     window.addEventListener("load", function() {
-
-
-
+        // убирает logo
         if (!SurGU_Check) {
             const logo = document.querySelector(".logo").style.cssText = "display: none;";
         }
-        let blocks = document.querySelectorAll('.card');
 
+        let blocks = document.querySelectorAll('.card');
+        // делаем каждому блоку определённый цвет и прозрачность
         for (let block of blocks) {
-            block.style.cssText = 'color: ' + colorTextBlock + '; background: rgba(0, 0, 0, 0.6)';
+            block.style.cssText = 'color: ' + colorTextBlock + '; background: rgba(0, 0, 0, 0.6);';
         }
 
+        // Эта штука скрывает элемент, отвечающий за преображение сайта, для красоты. Сейчас она на карантине, я ещё не придумал как ничего не меняя придать конкретному блоку без использования идентификатора (потому что я пологаю, что он создаёт каждый раз новый (по крайней мере это логично)) display: none; если у кого есть идеи - пишите
+        /*
+          let colorBlock = blocks[blocks.length - 5].style.cssText = "display: none;";
+          */
+
+        // эту штуку не трогать!!! она чинит поломанный блок, а то он выглядит не красиво...
         var cources = document.querySelector(".block_myoverview > .card-body").style.cssText = 'padding: 16px !important;';
 
-
+        // меняем цвет каждой ссылке, к котроым относится и блоки
         let a = document.querySelectorAll('a');
 
         for (let a_elem of a) {
             a_elem.style.cssText = 'color: ' + colorButtons + ';';
         };
 
+        // убираем footer
         const footer = document.querySelector('#page-footer');
         footer.style.cssText = SurGU_Check ? 'display: block;' : "display: none";
+
         let footer_a = footer.querySelectorAll('a');
         for (let footer_a_elem of footer_a) {
             footer_a_elem.style.cssText = "color: whitesmoke;";
@@ -103,11 +110,15 @@
 
         const right = document.querySelector('.drawer-right-toggle').style;
         right.cssText = 'display: none;'; // Эта штука бесполезна и никому не нужна!!!
+        // Можно быстро всё закоментировать и вернуть её, но работать с ней я не буду
 
         const verticalLine = document.querySelector('.divider').style;
         verticalLine.cssText = SurGU_Check ? "display: block;" : 'display: none;';
 
+        // убирает выбор редактирования режима, 97% времени он не нужен
         const inputGroup = document.querySelector('.input-group').style;
         inputGroup.cssText = SurGU_Check ? "display: block;" : 'display: none;';
     });
+  
+  // А и да, если долго загруается, то просто перейдите на другую страницу Moodle, после чего обратно в личный кабинет, это помогает
 </script>

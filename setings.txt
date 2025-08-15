@@ -1,10 +1,12 @@
 <script>
     // Параметры изменения
-    var colorName = "darkorange"
-    var colorTextBlock = "lightsalmon"
+    let colorName = "darkorange"
+    let colorTextBlock = "lightsalmon"
     // var colorButtons = "tomato"
-    var colorButtons = "tomato"
-    var backgroundImage = "https://i.pinimg.com/736x/1e/81/6e/1e816e9b8f1552030f0a6d493a8383be.jpg" // Asuka
+    let colorButtons = "tomato"
+    let backgroundImage = "https://s3.amazonaws.com/media-p.slid.es/uploads/857131/images/8936777/pasted-from-clipboard.png" // Scala
+    let valueBackgroundSize = "33vw"
+    let valueHiddenButton = "flex" // flex || none
 
     // Переключение между красивым офицальным и персонализированным
     var SWITCH = "OFF"
@@ -25,6 +27,8 @@
     https://static.wikia.nocookie.net/60d8700a-5793-47c5-a740-20c7de919e5c/scale-to-width/755 // Сквидвард думает
     
     https://avatars.mds.yandex.net/i?id=d09dbd2e5fa55f541fd5122096fcd837_l-12997438-images-thumbs&n=13 // Губка боб читает
+    
+	https://i.pinimg.com/736x/1e/81/6e/1e816e9b8f1552030f0a6d493a8383be.jpg // Asuka
     */
     const myprofileitem = document.querySelector('.fullname').style;
 
@@ -48,7 +52,7 @@
 
     const topofscroll = document.getElementById('topofscroll').style;
 
-    topofscroll.cssText = 'background: rgba(0, 0, 0, 0); box-shadow: none;'; // делает содержание контейнера абсолютно прозрачным
+    topofscroll.cssText = 'background: rgba(0, 0, 0, 0); box-shadow: none; margin-bottom: 0'; // делает содержание контейнера абсолютно прозрачным
 
     // функция для скрытия блоков и показа заднего фона
     let switchTopofscroll = 0;
@@ -68,7 +72,7 @@
 
     const page = document.getElementById('page').style;
 
-    page.cssText = 'color: ' + colorTextBlock + '; background: url(' + backgroundImage + ');background-repeat:round; background-size: 30vw'; // Задний фон
+    page.cssText = 'color: ' + colorTextBlock + '; background: url(' + backgroundImage + ');background-repeat:round; background-size:' + valueBackgroundSize + ';'; // Задний фон
 
     // это всё будет работать только после загрузки всей страницы, так как многие элементы загружаются не сразу, например footer
     window.addEventListener("load", function() {
@@ -83,10 +87,10 @@
             block.style.cssText = 'color: ' + colorTextBlock + '; background: rgba(0, 0, 0, 0.6);';
         }
 
-        // Эта штука скрывает элемент, отвечающий за преображение сайта, для красоты. Сейчас она на карантине, я ещё не придумал как ничего не меняя придать конкретному блоку без использования идентификатора (потому что я пологаю, что он создаёт каждый раз новый (по крайней мере это логично)) display: none; если у кого есть идеи - пишите
-        /*
-          let colorBlock = blocks[blocks.length - 5].style.cssText = "display: none;";
-          */
+        // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        // Эта штука скрывает элемент, отвечающий за преображение сайта, для красоты.
+
+        let colorBLock = document.querySelector("#block-region-content section:last-child").style.cssText = "color: " + colorTextBlock + "; background: rgba(0, 0, 0, 0.6); display: " + valueHiddenButton + ";";
 
         // эту штуку не трогать!!! она чинит поломанный блок, а то он выглядит не красиво...
         var cources = document.querySelector(".block_myoverview > .card-body").style.cssText = 'padding: 16px !important;';
@@ -119,6 +123,6 @@
         const inputGroup = document.querySelector('.input-group').style;
         inputGroup.cssText = SurGU_Check ? "display: block;" : 'display: none;';
     });
-  
-  // А и да, если долго загруается, то просто перейдите на другую страницу Moodle, после чего обратно в личный кабинет, это помогает
+
+    // А и да, если долго загруается, то просто перейдите на другую страницу Moodle, после чего обратно в личный кабинет, это помогает
 </script>

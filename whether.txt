@@ -1,128 +1,126 @@
-<p>
-    <script type="text/javascript">
-        // <![CDATA[
-        "use strict"
+<script type="text/javascript">
+    // <![CDATA[
+    "use strict"
 
-        function weeksBetween(start, end) {
-            var d = new Date(start);
-            d.setHours(0, 0, 0, 0);
-            return Math.floor((end - d) / (7 * 24 * 60 * 60 * 1000));
+    function weeksBetween(start, end) {
+        var d = new Date(start);
+        d.setHours(0, 0, 0, 0);
+        return Math.floor((end - d) / (7 * 24 * 60 * 60 * 1000));
+    }
+
+    function daysBetween(start, end) {
+        var d = new Date(start);
+        d.setHours(0, 0, 0, 0);
+        return Math.floor((end - d) / (24 * 60 * 60 * 1000));
+    }
+
+    function getMondayOfWeek(date) {
+        var d = new Date(date);
+        d.setDate(date.getDate() - ((date.getDay() + 8) % 7 - 2));
+        return d;
+    }
+
+    function makeDaysTail(cur, next) {
+        var days = daysBetween(cur, next);
+        if (Math.floor(days % 100 / 10) == 1 || days % 10 > 4 || days % 10 == 0) return (" –æ—Å—Ç–∞–ª–æ—Å—å " + days + " –¥–Ω–µ–π");
+        else
+            return (days % 10 == 1 ? (" –æ—Å—Ç–∞–ª—Å—è " + days + " –¥–µ–Ω—å") : (" –æ—Å—Ç–∞–ª–æ—Å—å " + days + " –¥–Ω—è"));
+    }
+    const y1 = 2025,
+        y2 = y1 + 1,
+        sem1Start = new Date(y1, 8, 1),
+        sem1End = new Date(y1, 11, 31),
+        ses1Start = new Date(y2, 0, 9),
+        ses1End = new Date(y2, 0, 24),
+        sem2Start = new Date(y2, 1, 2),
+        sem2End = new Date(y2, 1, 2 + 7 * 18 - 1),
+        ses2Start = new Date(y2, 1, 2 + 7 * 18),
+        ses2End = new Date(y2, 1, 2 + 7 * 18 + 7 * 3 - 1),
+        pracStart = new Date(y2, 1, 2 + 7 * 18 + 7 * 3),
+        pracEnd = new Date(y2, 1, 2 + 7 * 18 + 7 * 3 + 7 * 4 - 1);
+    var past = new Date;
+
+    function defineWeek(d) {
+        var s = getMondayOfWeek(sem1Start),
+            n = weeksBetween(s, d),
+            wt = n % 2 ? "–∑–Ω–∞–º–µ–Ω–∞—Ç–µ–ª—å" : "—á–∏—Å–ª–∏—Ç–µ–ª—å",
+            msg1, msg2, msg3, msgb = "–î–æ –Ω–∞—á–∞–ª–∞ ";
+        if (d < sem1Start) msg1 = "–õ–µ—Ç–Ω–∏–µ –∫–∞–Ω–∏–∫—É–ª—ã", msg3 = msgb + "—É—á–µ–±–Ω–æ–≥–æ –≥–æ–¥–∞" + makeDaysTail(d, sem1Start);
+        else if (d <= sem1End) msg1 = "–û—Å–µ–Ω–Ω–∏–π —Å–µ–º–µ—Å—Ç—Ä, " + (n + 1) + "-—è –Ω–µ–¥–µ–ª—è, <u>" + wt + "</u>",
+            msg2 = (n >= 16) ? "<b>–ó–∞—á–µ—Ç–Ω–∞—è –Ω–µ–¥–µ–ª—è</b>" : msgb + "–∑–∞—á–µ—Ç–Ω–æ–π –Ω–µ–¥–µ–ª–∏" + makeDaysTail(d, new Date(s.getFullYear(), s.getMonth(), s.getDate() + 16 * 7)),
+            msg3 = msgb + "–∑–∏–º–Ω–µ–π —Å–µ—Å—Å–∏–∏" + makeDaysTail(d, ses1Start);
+        else if (d < ses1Start) msg1 = "–û—Å–µ–Ω–Ω–∏–π —Å–µ–º–µ—Å—Ç—Ä –∑–∞–∫–æ–Ω—á–∏–ª—Å—è", msg3 = msgb + "–∑–∏–º–Ω–µ–π —Å–µ—Å—Å–∏–∏" + makeDaysTail(d, ses1Start);
+        else if (d <= ses1End) msg1 = "–ó–∏–º–Ω—è—è —Å–µ—Å—Å–∏—è", msg3 = msgb + "–∑–∏–º–Ω–∏—Ö –∫–∞–Ω–∏–∫—É–ª" + makeDaysTail(d, new Date(ses1End.getFullYear(), ses1End.getMonth(), ses1End.getDate() + 1));
+        else if (d < sem2Start) msg1 = "–ó–∏–º–Ω–∏–µ –∫–∞–Ω–∏–∫—É–ª—ã", msg3 = msgb + "–≤–µ—Å–µ–Ω–Ω–µ–≥–æ —Å–µ–º–µ—Å—Ç—Ä–∞" + makeDaysTail(d, sem2Start);
+        else if (d <= sem2End) s = getMondayOfWeek(sem2Start), n = weeksBetween(s, d), msg1 = "–í–µ—Å–µ–Ω–Ω–∏–π —Å–µ–º–µ—Å—Ç—Ä, " + (n + 1) + "-—è –Ω–µ–¥–µ–ª—è, <u>" + wt + "</u>",
+            msg2 = n >= 16 ? "<b>–ó–∞—á–µ—Ç–Ω–∞—è –Ω–µ–¥–µ–ª—è</b>" : msgb + "–∑–∞—á–µ—Ç–Ω–æ–π –Ω–µ–¥–µ–ª–∏" + makeDaysTail(d, new Date(s.getFullYear(), s.getMonth(), s.getDate() + 16 * 7)),
+            msg3 = msgb + "–ª–µ—Ç–Ω–µ–π —Å–µ—Å—Å–∏–∏" + makeDaysTail(d, ses2Start);
+        else if (d < ses2Start) msg1 = "–í–µ—Å–µ–Ω–Ω–∏–π —Å–µ–º–µ—Å—Ç—Ä –∑–∞–∫–æ–Ω—á–∏–ª—Å—è", msg3 = msgb + "–ª–µ—Ç–Ω–µ–π —Å–µ—Å—Å–∏–∏" + makeDaysTail(d, ses2Start);
+        else if (d <= ses2End) msg1 = "–õ–µ—Ç–Ω—è—è —Å–µ—Å—Å–∏—è", msg3 = msgb + "–ª–µ—Ç–Ω–∏—Ö –∫–∞–Ω–∏–∫—É–ª –∏–ª–∏ –ø—Ä–∞–∫—Ç–∏–∫–∏" + makeDaysTail(d, new Date(ses2End.getFullYear(), ses2End.getMonth(), ses2End.getDate() + 1));
+        else if (d <= pracEnd) msg1 = "–õ–µ—Ç–Ω–∏–µ –∫–∞–Ω–∏–∫—É–ª—ã –∏–ª–∏ –ø—Ä–∞–∫—Ç–∏–∫–∞";
+        else msg1 = "–õ–µ—Ç–Ω–∏–µ –∫–∞–Ω–∏–∫—É–ª—ã";
+        msg1 = "<p align=\"center\"><b>" + msg1 + "</b>" + (msg2 ? ("<br>" + msg2) : "") + (msg3 ? ("<br>" + msg3) : "") + "</p>";
+        return msg1;
+    }
+
+    function makeHM(t) {
+        return (t >= 60 ? (String(Math.floor(t / 60)) + " —á. ") : "") + (t % 60) + " –º.";
+    }
+
+    function defineTime(d) {
+        const FIRST_START = 8 * 60 + 30,
+            PAIR_LEN = 80,
+            REST_LEN = 10,
+            ADD3_LEN = 20,
+            ADD6_LEN = 10;
+
+        function startTime(n) {
+            return FIRST_START + (n - 1) * (PAIR_LEN + REST_LEN) + (n > 3 ? ADD3_LEN : 0) + (n > 6 ? ADD6_LEN : 0);
         }
 
-        function daysBetween(start, end) {
-            var d = new Date(start);
-            d.setHours(0, 0, 0, 0);
-            return Math.floor((end - d) / (24 * 60 * 60 * 1000));
+        function pairNumber(t) {
+            var k = t - startTime(1) - (t >= startTime(7) ? ADD6_LEN : 0) - (t >= startTime(4) ? ADD3_LEN : 0);
+            return Math.floor(1 + k / (PAIR_LEN + REST_LEN));
         }
-
-        function getMondayOfWeek(date) {
-            var d = new Date(date);
-            d.setDate(date.getDate() - ((date.getDay() + 8) % 7 - 2));
-            return d;
+        var msg1, msg2, t = d.getHours() * 60 + d.getMinutes();
+        if (!d.getDay()) msg1 = "–ó–∞–Ω—è—Ç–∏–π –Ω–µ—Ç (–≤–æ—Å–∫—Ä–µ—Å–µ–Ω—å–µ)", msg2 = "–î–æ –Ω–∞—á–∞–ª–∞ 1-–π –ø–∞—Ä—ã –æ—Å—Ç–∞–ª–æ—Å—å " + makeHM(startTime(1) + 24 * 60 - t);
+        else if (t < startTime(1)) msg1 = "–ó–∞–Ω—è—Ç–∏—è –µ—â–µ –Ω–µ –Ω–∞—á–∞–ª–∏—Å—å", msg2 = "–î–æ –Ω–∞—á–∞–ª–∞ 1-–π –ø–∞—Ä—ã –æ—Å—Ç–∞–ª–æ—Å—å " + makeHM(startTime(1) - t);
+        else if (t >= startTime(9) - REST_LEN) {
+            msg1 = "–°–µ–≥–æ–¥–Ω—è –∑–∞–Ω—è—Ç–∏—è –∑–∞–∫–æ–Ω—á–∏–ª–∏—Å—å";
+            if (d.getDay() < 6) msg2 = "–î–æ –Ω–∞—á–∞–ª–∞ 1-–π –ø–∞—Ä—ã –æ—Å—Ç–∞–ª–æ—Å—å " + makeHM(startTime(1) + 24 * 60 - t);
+            else msg2 = "–î–æ –Ω–∞—á–∞–ª–∞ 1-–π –ø–∞—Ä—ã (–≤ –ø–æ–Ω–µ–¥–µ–ª—å–Ω–∏–∫) –æ—Å—Ç–∞–ª–æ—Å—å " + makeHM(startTime(1) + 2 * 24 * 60 - t);
+        } else {
+            var n = pairNumber(t),
+                m = t - startTime(n);
+            if (m < PAIR_LEN) msg1 = "–ò–¥–µ—Ç " + n + "-—è –ø–∞—Ä–∞", msg2 = "–î–æ –ø–µ—Ä–µ—Ä—ã–≤–∞ –æ—Å—Ç–∞–ª–æ—Å—å " + makeHM(PAIR_LEN - m);
+            else msg1 = (n == 3 ? "–ë–æ–ª—å—à–æ–π –ø–µ—Ä–µ—Ä—ã–≤" : ("–ü–µ—Ä–µ—Ä—ã–≤ –ø–æ—Å–ª–µ " + n + "-–π –ø–∞—Ä—ã")), msg2 = "–î–æ –Ω–∞—á–∞–ª–∞ " + (n + 1) + "-–π –ø–∞—Ä—ã –æ—Å—Ç–∞–ª–æ—Å—å " + makeHM(startTime(n + 1) - t);
         }
+        return "<p align=\"center\">" + (msg1 ? ("<b>" + msg1 + "</b>") : "") + (msg1 && msg2 ? "<br>" : "") + (msg2 ? msg2 : "") + "</p>";
+    }
 
-        function makeDaysTail(cur, next) {
-            var days = daysBetween(cur, next);
-            if (Math.floor(days % 100 / 10) == 1 || days % 10 > 4 || days % 10 == 0) return (" Æ·‚†´Æ·Ï " + days + " §≠•©");
-            else
-                return (days % 10 == 1 ? (" Æ·‚†´·Ô " + days + " §•≠Ï") : (" Æ·‚†´Æ·Ï " + days + " §≠Ô"));
+    function isSemester(d) {
+        return d >= sem1Start && d <= sem1End || d >= sem2Start && d <= sem2End;
+    }
+
+    function updateDateTimeInfo() {
+        var now = new Date();
+        if (now.getSeconds() != past.getSeconds()) {
+            document.getElementById("idCurrentDateTime").innerHTML = now.toLocaleString();
+            if (now.getDate() != past.getDate()) document.getElementById("idDefineDate").innerHTML = defineWeek(now);
+            if (isSemester(past) && now.getMinutes() != past.getMinutes()) document.getElementById("idDefineTime").innerHTML = defineTime(now);
+            past = now;
         }
-        const y1 = 2024,
-            y2 = y1 + 1,
-            sem1Start = new Date(y1, 8, 1),
-            sem1End = new Date(y1, 11, 31),
-            ses1Start = new Date(y2, 0, 9),
-            ses1End = new Date(y2, 0, 22),
-            sem2Start = new Date(y2, 1, 3),
-            sem2End = new Date(y2, 1, 3 + 7 * 18 - 1),
-            ses2Start = new Date(y2, 1, 3 + 7 * 18),
-            ses2End = new Date(y2, 1, 3 + 7 * 18 + 7 * 3 - 1),
-            pracStart = new Date(y2, 1, 3 + 7 * 18 + 7 * 3),
-            pracEnd = new Date(y2, 1, 3 + 7 * 18 + 7 * 3 + 7 * 4);
-        var past = new Date;
-
-        function defineWeek(d) {
-            var s = getMondayOfWeek(sem1Start),
-                n = weeksBetween(s, d),
-                wt = n % 2 ? "ß≠†¨•≠†‚•´Ï" : "Á®·´®‚•´Ï",
-                msg1, msg2, msg3, msgb = "ÑÆ ≠†Á†´† ";
-            if (d < sem1Start) msg1 = "ã•‚≠®• ™†≠®™„´Î", msg3 = msgb + "„Á•°≠Æ£Æ £Æ§†" + makeDaysTail(d, sem1Start);
-            else if (d <= sem1End) msg1 = "é·•≠≠®© ·•¨•·‚‡, " + (n + 1) + "-Ô ≠•§•´Ô, <u>" + wt + "</u>",
-                msg2 = (n >= 16) ? "<b>á†Á•‚≠†Ô ≠•§•´Ô</b>" : msgb + "ß†Á•‚≠Æ© ≠•§•´®" + makeDaysTail(d, new Date(s.getFullYear(), s.getMonth(), s.getDate() + 16 * 7)),
-                msg3 = msgb + "ß®¨≠•© ·•··®®" + makeDaysTail(d, ses1Start);
-            else if (d < ses1Start) msg1 = "é·•≠≠®© ·•¨•·‚‡ ß†™Æ≠Á®´·Ô", msg3 = msgb + "ß®¨≠•© ·•··®®" + makeDaysTail(d, ses1Start);
-            else if (d <= ses1End) msg1 = "á®¨≠ÔÔ ·•··®Ô", msg3 = msgb + "ß®¨≠®Â ™†≠®™„´" + makeDaysTail(d, new Date(ses1End.getFullYear(), ses1End.getMonth(), ses1End.getDate() + 1));
-            else if (d < sem2Start) msg1 = "á®¨≠®• ™†≠®™„´Î", msg3 = msgb + "¢•·•≠≠•£Æ ·•¨•·‚‡†" + makeDaysTail(d, sem2Start);
-            else if (d <= sem2End) s = getMondayOfWeek(sem2Start), n = weeksBetween(s, d), msg1 = "Ç•·•≠≠®© ·•¨•·‚‡, " + (n + 1) + "-Ô ≠•§•´Ô, <u>" + wt + "</u>",
-                msg2 = n >= 16 ? "<b>á†Á•‚≠†Ô ≠•§•´Ô</b>" : msgb + "ß†Á•‚≠Æ© ≠•§•´®" + makeDaysTail(d, new Date(s.getFullYear(), s.getMonth(), s.getDate() + 16 * 7)),
-                msg3 = msgb + "´•‚≠•© ·•··®®" + makeDaysTail(d, ses2Start);
-            else if (d < ses2Start) msg1 = "Ç•·•≠≠®© ·•¨•·‚‡ ß†™Æ≠Á®´·Ô", msg3 = msgb + "´•‚≠•© ·•··®®" + makeDaysTail(d, ses2Start);
-            else if (d <= ses2End) msg1 = "ã•‚≠ÔÔ ·•··®Ô", msg3 = msgb + "´•‚≠®Â ™†≠®™„´ ®´® Ø‡†™‚®™®" + makeDaysTail(d, new Date(ses2End.getFullYear(), ses2End.getMonth(), ses2End.getDate() + 1));
-            else if (d <= pracEnd) msg1 = "ã•‚≠®• ™†≠®™„´Î ®´® Ø‡†™‚®™†";
-            else msg1 = "ã•‚≠®• ™†≠®™„´Î";
-            msg1 = "<p align=\"center\"><b>" + msg1 + "</b>" + (msg2 ? ("<br>" + msg2) : "") + (msg3 ? ("<br>" + msg3) : "") + "</p>";
-            return msg1;
-        }
-
-        function makeHM(t) {
-            return (t >= 60 ? (String(Math.floor(t / 60)) + " Á. ") : "") + (t % 60) + " ¨.";
-        }
-
-        function defineTime(d) {
-            const FIRST_START = 8 * 60 + 30,
-                PAIR_LEN = 80,
-                REST_LEN = 10,
-                ADD3_LEN = 20,
-                ADD6_LEN = 10;
-
-            function startTime(n) {
-                return FIRST_START + (n - 1) * (PAIR_LEN + REST_LEN) + (n > 3 ? ADD3_LEN : 0) + (n > 6 ? ADD6_LEN : 0);
-            }
-
-            function pairNumber(t) {
-                var k = t - startTime(1) - (t >= startTime(7) ? ADD6_LEN : 0) - (t >= startTime(4) ? ADD3_LEN : 0);
-                return Math.floor(1 + k / (PAIR_LEN + REST_LEN));
-            }
-            var msg1, msg2, t = d.getHours() * 60 + d.getMinutes();
-            if (!d.getDay()) msg1 = "á†≠Ô‚®© ≠•‚ (¢Æ·™‡•·•≠Ï•)", msg2 = "ÑÆ ≠†Á†´† 1-© Ø†‡Î Æ·‚†´Æ·Ï " + makeHM(startTime(1) + 24 * 60 - t);
-            else if (t < startTime(1)) msg1 = "á†≠Ô‚®Ô •È• ≠• ≠†Á†´®·Ï", msg2 = "ÑÆ ≠†Á†´† 1-© Ø†‡Î Æ·‚†´Æ·Ï " + makeHM(startTime(1) - t);
-            else if (t >= startTime(9) - REST_LEN) {
-                msg1 = "ë•£Æ§≠Ô ß†≠Ô‚®Ô ß†™Æ≠Á®´®·Ï";
-                if (d.getDay() < 6) msg2 = "ÑÆ ≠†Á†´† 1-© Ø†‡Î Æ·‚†´Æ·Ï " + makeHM(startTime(1) + 24 * 60 - t);
-                else msg2 = "ÑÆ ≠†Á†´† 1-© Ø†‡Î (¢ ØÆ≠•§•´Ï≠®™) Æ·‚†´Æ·Ï " + makeHM(startTime(1) + 2 * 24 * 60 - t);
-            } else {
-                var n = pairNumber(t),
-                    m = t - startTime(n);
-                if (m < PAIR_LEN) msg1 = "à§•‚ " + n + "-Ô Ø†‡†", msg2 = "ÑÆ Ø•‡•‡Î¢† Æ·‚†´Æ·Ï " + makeHM(PAIR_LEN - m);
-                else msg1 = (n == 3 ? "ÅÆ´ÏËÆ© Ø•‡•‡Î¢" : ("è•‡•‡Î¢ ØÆ·´• " + n + "-© Ø†‡Î")), msg2 = "ÑÆ ≠†Á†´† " + (n + 1) + "-© Ø†‡Î Æ·‚†´Æ·Ï " + makeHM(startTime(n + 1) - t);
-            }
-            return "<p align=\"center\">" + (msg1 ? ("<b>" + msg1 + "</b>") : "") + (msg1 && msg2 ? "<br>" : "") + (msg2 ? msg2 : "") + "</p>";
-        }
-
-        function isSemester(d) {
-            return d >= sem1Start && d <= sem1End || d >= sem2Start && d <= sem2End;
-        }
-
-        function updateDateTimeInfo() {
-            var now = new Date();
-            if (now.getSeconds() != past.getSeconds()) {
-                document.getElementById("idCurrentDateTime").innerHTML = now.toLocaleString();
-                if (now.getDate() != past.getDate()) document.getElementById("idDefineDate").innerHTML = defineWeek(now);
-                if (isSemester(past) && now.getMinutes() != past.getMinutes()) document.getElementById("idDefineTime").innerHTML = defineTime(now);
-                past = now;
-            }
-            setTimeout(updateDateTimeInfo, 1000 - now.getMilliseconds());
-        }
-        past.setDate(past.getDate() - 1);
-        past.setMinutes(past.getMinutes() - 1);
-        past.setSeconds(past.getSeconds() - 1);
-        document.write("<p align=\"center\" title=\"ãÆ™†´Ï≠Æ• ¢‡•¨Ô ØÆ´ÏßÆ¢†‚•´Ô\"><b>ë•£Æ§≠Ô <span id=\"idCurrentDateTime\"></span></b></p>");
-        document.write("<div id=\"idDefineDate\"></div><div id=\"idDefineTime\"></div>");
-        updateDateTimeInfo();
-        document.write("<p align=\"center\" title=\"ì‚¢•‡¶§•≠≠Î• ‡†·Ø®·†≠®Ô ≠† ·†©‚• ë„‡Éì (‡†ß§•´ ìÁ•°†)\">");
-        document.write("<a href=\"http://www.surgu.ru/raspisanie\" target=\"_blank\"><b>èÆ·¨Æ‚‡•‚Ï ‡†·Ø®·†≠®•</b></a></p>");
-        document.write("<p align=\"center\" title=\"èÆ§‡Æ°≠•• ≠† ü≠§•™·.èÆ£Æ§†\"><a href=\"https://yandex.ru/hava/973\" target=\"_blank\">");
-        document.write("<img src=\"https://info.weather.yandex.net/973/2_white.ru.png?domain=ru\" border=\"0\" alt=\"ü≠§•™·.èÆ£Æ§†\" /></a></p>");
-        // ]]>
-    </script>
-</p>
+        setTimeout(updateDateTimeInfo, 1000 - now.getMilliseconds());
+    }
+    past.setDate(past.getDate() - 1);
+    past.setMinutes(past.getMinutes() - 1);
+    past.setSeconds(past.getSeconds() - 1);
+    document.write("<p align=\"center\" title=\"–õ–æ–∫–∞–ª—å–Ω–æ–µ –≤—Ä–µ–º—è –ø–æ–ª—å–∑–æ–≤–∞—Ç–µ–ª—è\"><b>–°–µ–≥–æ–¥–Ω—è <span id=\"idCurrentDateTime\"></span></b></p>");
+    document.write("<div id=\"idDefineDate\"></div><div id=\"idDefineTime\"></div>");
+    updateDateTimeInfo();
+    document.write("<p align=\"center\" title=\"–£—Ç–≤–µ—Ä–∂–¥–µ–Ω–Ω—ã–µ —Ä–∞—Å–ø–∏—Å–∞–Ω–∏—è –Ω–∞ —Å–∞–π—Ç–µ –°—É—Ä–ì–£ (—Ä–∞–∑–¥–µ–ª –£—á–µ–±–∞)\">");
+    document.write("<a href=\"http://www.surgu.ru/raspisanie\" target=\"_blank\"><b>–ü–æ—Å–º–æ—Ç—Ä–µ—Ç—å —Ä–∞—Å–ø–∏—Å–∞–Ω–∏–µ</b></a></p>");
+    document.write("<p align=\"center\" title=\"–ü–æ–¥—Ä–æ–±–Ω–µ–µ –Ω–∞ –Ø–Ω–¥–µ–∫—Å.–ü–æ–≥–æ–¥–∞\"><a href=\"https://yandex.ru/hava/973\" target=\"_blank\">");
+    document.write("<img src=\"https://info.weather.yandex.net/973/2_white.ru.png?domain=ru\" border=\"0\" alt=\"–Ø–Ω–¥–µ–∫—Å.–ü–æ–≥–æ–¥–∞\" /></a></p>");
+    // ]]>
+</script>

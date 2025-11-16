@@ -1,15 +1,38 @@
 <script>
     // Параметры изменения
-    let colorName = "darkorange"
-    let colorTextBlock = "lightsalmon"
-    // var colorButtons = "tomato"
-    let colorButtons = "tomato"
-    let backgroundImage = "https://s3.amazonaws.com/media-p.slid.es/uploads/857131/images/8936777/pasted-from-clipboard.png" // Scala
-    let valueBackgroundSize = "33vw"
-    let valueHiddenButton = "flex" // flex || none
+    let dataPersonal = [
+        "darkmagenta",
+        "magenta",
+        "deeppink",
+        "deeppink",
+        "https://sun9-68.userapi.com/s/v1/ig2/wt_yHBJLmQMqOmmJ59s-EB-Kcj8Pbf_0crLytka_qpXfjCqVTghYG3RBHiIN7uCJarC121a6yj3ja0a_cDCMlOxX.jpg?quality=95&as=32x32,48x48,72x72,108x108,160x160,240x240,360x360,480x480,540x540,640x640,720x720,1080x1080,1280x1280,1440x1440,2560x2560&from=bu&cs=2560x0",
+        "20vw",
+        "flex",
+        "OFF"
+    ] // Сфера
+
+    /*
+        let dataPersonal = [
+            "darkorange",
+            "lightsalmon",
+            "tomato",
+            "tomato",
+            "https://s3.amazonaws.com/media-p.slid.es/uploads/857131/images/8936777/pasted-from-clipboard.png",
+            "33vw",
+            "none",
+            "OFF"
+            ] // Scala  
+    */
+    let colorName = dataPersonal[0]
+    let colorTextBlock = dataPersonal[1]
+    // var colorButtons = dataPersonal[2]
+    let colorButtons = dataPersonal[3]
+    let backgroundImage = dataPersonal[4]
+    let valueBackgroundSize = dataPersonal[5]
+    let valueHiddenButton = dataPersonal[6] // flex || none
 
     // Переключение между красивым офицальным и персонализированным
-    var SWITCH = "OFF"
+    var SWITCH = dataPersonal[7]
 
 
     SurGU_Check = SWITCH == "ON" ? true : false; // Выполняется проверка, если включен режим SurGU, тогда будет всё в стиле СурГУ, иначе так как мы того решим
@@ -26,9 +49,11 @@
     
     https://static.wikia.nocookie.net/60d8700a-5793-47c5-a740-20c7de919e5c/scale-to-width/755 // Сквидвард думает
     
-    https://avatars.mds.yandex.net/i?id=d09dbd2e5fa55f541fd5122096fcd837_l-12997438-images-thumbs&n=13 // Губка боб читает
+    https://avatars.mds.yandex.net/i?id=d09dbd2e5fa55f541fd5122096fcd837_l-12997438-images-thumbs&n=13 // Губка боб читает 
+
+    https://i.pinimg.com/736x/1e/81/6e/1e816e9b8f1552030f0a6d493a8383be.jpg // Asuka
     
-	https://i.pinimg.com/736x/1e/81/6e/1e816e9b8f1552030f0a6d493a8383be.jpg // Asuka
+        https://s3.amazonaws.com/media-p.slid.es/uploads/857131/images/8936777/pasted-from-clipboard.png // Scala
     */
     const myprofileitem = document.querySelector('.fullname').style;
 
